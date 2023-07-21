@@ -20,4 +20,13 @@ public class LongestSubarrayWithEqualNumberOf0sAnd1s {
 		}
 		return maxLength;
 	}
+
+	public static void main(String[] args) {
+		int[] arr = { 1, 1, 0, 1, 0, 0, 1, 0, 0, 1, 1, 0 };
+		int N = arr.length;
+
+		LongestSubarrayWithEqualNumberOf0sAnd1s solution = new LongestSubarrayWithEqualNumberOf0sAnd1s();
+		int result = solution.maxLen(arr, N);
+		System.out.println("Longest sub array length: " + result);
+	}
 }
