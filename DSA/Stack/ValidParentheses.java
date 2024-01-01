@@ -1,4 +1,4 @@
-package com.softgroup.patterns;
+package com.softgroup.dsa.stack;
 
 import java.util.Stack;
 
