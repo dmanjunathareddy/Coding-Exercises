@@ -1,4 +1,4 @@
-package com.softgroup.behavioral.designpatterns.cqrs;
+package com.softgroup.hld.coordination.designpatterns.cqrs;
 
 public class CQRSExample {
     public static void main(String[] args) {

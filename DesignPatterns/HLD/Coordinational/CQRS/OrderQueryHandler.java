@@ -1,4 +1,4 @@
-package com.softgroup.behavioral.designpatterns.cqrs;
+package com.softgroup.hld.coordination.designpatterns.cqrs;
 
 public class OrderQueryHandler {
     Order getOrderDetails(String orderId) {
