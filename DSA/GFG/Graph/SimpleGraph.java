@@ -6,17 +6,24 @@ import java.util.List;
 import java.util.Map;
 
 public class SimpleGraph {
+
 	private Map<Integer, List<Integer>> adjacencyList;
 
 	public SimpleGraph() {
-		this.adjacencyList = new HashMap<>();
+		adjacencyList = new HashMap<>();
 	}
 
 	public void addVertex(int vertex) {
 		adjacencyList.put(vertex, new ArrayList<>());
 	}
 
-	public void addEdge(int source, int destination) {
+	public void addEdges(int source, int destination) {
+		if (!adjacencyList.containsKey(source)) {
+			addVertex(source);
+		}
+		if (!adjacencyList.containsKey(destination)) {
+			addVertex(destination);
+		}
 		adjacencyList.get(source).add(destination);
 		adjacencyList.get(destination).add(source);
 	}
@@ -35,19 +42,18 @@ public class SimpleGraph {
 	}
 
 	public static void main(String[] args) {
+
 		SimpleGraph graph = new SimpleGraph();
-		// Adding vertices
-		for (int i = 1; i <= 5; i++) {
+
+		for (int i = 0; i < 5; i++) {
 			graph.addVertex(i);
 		}
 
-		// Adding edges
-		graph.addEdge(1, 2);
-		graph.addEdge(1, 3);
-		graph.addEdge(2, 4);
-		graph.addEdge(3, 5);
+		graph.addEdges(1, 2);
+		graph.addEdges(2, 3);
+		graph.addEdges(3, 4);
+		graph.addEdges(3, 5);
 
-		// Printing the graph
 		graph.printGraph();
 	}
 }
