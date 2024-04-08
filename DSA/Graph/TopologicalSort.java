@@ -1,61 +1,58 @@
-package com.softgroup.dsa.arrayscom.softgroup.dsa.graph;
+package com.softgroup.dsa.graph;
 
 import java.util.*;
 
 public class TopologicalSort {
-	private Stack<Integer> stack;
-	private boolean[] visited;
-	private List<List<Integer>> adjList;
+	public static List<Integer> topologicalSort(int numCourses, int[][] prerequisites) {
+		List<Integer> sortedOrder = new ArrayList<>();
+		if (numCourses <= 0)
+			return sortedOrder;
 
-	public TopologicalSort(int vertices) {
-		stack = new Stack<>();
-		visited = new boolean[vertices];
-		adjList = new ArrayList<>(vertices);
-
-		for (int i = 0; i < vertices; i++) {
-			adjList.add(new ArrayList<>());
+		// Initialize the adjacency list and in-degree array
+		HashMap<Integer, Integer> inDegree = new HashMap<>();
+		HashMap<Integer, List<Integer>> graph = new HashMap<>();
+		for (int i = 0; i < numCourses; i++) {
+			inDegree.put(i, 0);
+			graph.put(i, new ArrayList<Integer>());
 		}
-	}
 
-	public void addEdge(int source, int destination) {
-		adjList.get(source).add(destination);
-	}
+		// Build the graph and in-degree array
+		for (int[] prerequisite : prerequisites) {
+			int parent = prerequisite[1];
+			int child = prerequisite[0];
+			graph.get(parent).add(child);
+			inDegree.put(child, inDegree.get(child) + 1);
+		}
 
-	private void dfs(int vertex) {
-		visited[vertex] = true;
-		for (int neighbor : adjList.get(vertex)) {
-			if (!visited[neighbor]) {
-				dfs(neighbor);
+		// Add all vertices with in-degree 0 to the queue
+		Queue<Integer> sources = new LinkedList<>();
+		for (Map.Entry<Integer, Integer> entry : inDegree.entrySet()) {
+			if (entry.getValue() == 0)
+				sources.add(entry.getKey());
+		}
+
+		// Process each vertex in the queue and reduce the in-degree of its neighbors
+		while (!sources.isEmpty()) {
+			int vertex = sources.poll();
+			sortedOrder.add(vertex);
+			List<Integer> children = graph.get(vertex);
+			for (int child : children) {
+				inDegree.put(child, inDegree.get(child) - 1);
+				if (inDegree.get(child) == 0)
+					sources.add(child);
 			}
 		}
-		stack.push(vertex);
-	}
 
-	public void topologicalSort() {
-		for (int i = 0; i < visited.length; i++) {
-			if (!visited[i]) {
-				dfs(i);
-			}
-		}
+		// If the sorted order doesn't contain all vertices, there's a cycle
+		if (sortedOrder.size() != numCourses)
+			return new ArrayList<>();
 
-		// Printing the result
-		System.out.print("Topological Sort: ");
-		while (!stack.isEmpty()) {
-			System.out.print(stack.pop() + " ");
-		}
+		return sortedOrder;
 	}
 
 	public static void main(String[] args) {
-		int vertices = 6;
-		TopologicalSort graph = new TopologicalSort(vertices);
-
-		graph.addEdge(5, 2);
-		graph.addEdge(5, 0);
-		graph.addEdge(4, 0);
-		graph.addEdge(4, 1);
-		graph.addEdge(2, 3);
-		graph.addEdge(3, 1);
-
-		graph.topologicalSort();
+		int[][] prerequisites = { { 1, 0 }, { 2, 0 }, { 3, 1 }, { 3, 2 } };
+		List<Integer> result = topologicalSort(4, prerequisites);
+		System.out.println("Topological sort: " + result);
 	}
 }
