@@ -1,11 +1,11 @@
 package com.softgroup.dsa.tree;
 
-class TreeNodee {
+class NodeForInsert {
 	int val;
-	TreeNodee left;
-	TreeNodee right;
+	NodeForInsert left;
+	NodeForInsert right;
 
-	public TreeNodee(int val) {
+	public NodeForInsert(int val) {
 		this.val = val;
 		this.left = null;
 		this.right = null;
@@ -13,7 +13,7 @@ class TreeNodee {
 }
 
 public class BST {
-	TreeNodee root;
+	NodeForInsert root;
 
 	public BST() {
 		this.root = null;
@@ -23,9 +23,9 @@ public class BST {
 		root = insertNode(root, val);
 	}
 
-	private TreeNodee insertNode(TreeNodee root, int val) {
+	private NodeForInsert insertNode(NodeForInsert root, int val) {
 		if (root == null) {
-			return new TreeNodee(val);
+			return new NodeForInsert(val);
 		}
 
 		if (val < root.val) {
@@ -42,7 +42,7 @@ public class BST {
 		inorderTraversal(root);
 	}
 
-	private void inorderTraversal(TreeNodee root) {
+	private void inorderTraversal(NodeForInsert root) {
 		if (root != null) {
 			inorderTraversal(root.left);
 			System.out.print(root.val + " ");
