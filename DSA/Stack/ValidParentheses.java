@@ -3,32 +3,30 @@ package com.softgroup.dsa.stack;
 import java.util.Stack;
 
 public class ValidParentheses {
-
-	public static void main(String[] args) {
-		String input = "(())";
-		System.out.println(input + " is Valid Parentheses? =>" + isValid(input));
-	}
-
-	private static boolean isValid(String input) {
-
-		int n = input.length();
-		if (n % 2 == 1) {
-			return false;
-		}
-
-		Stack<Character> stack = new Stack<Character>();
-		char[] ch = input.toCharArray();
-		for (char c : ch) {
-			if (c == '{') {
-				stack.push('}');
-			} else if (c == '[') {
-				stack.push(']');
-			} else if (c == '(') {
-				stack.push(')');
-			} else if (stack.isEmpty() || stack.pop() != c) {
-				return false;
+	public boolean isValid(String s) {
+		Stack<Character> stack = new Stack<>();
+		for (char c : s.toCharArray()) {
+			if (c == '(' || c == '[' || c == '{') {
+				stack.push(c);
+			} else {
+				if (stack.isEmpty())
+					return false;
+				char top = stack.pop();
+				if ((c == ')' && top != '(') || (c == ']' && top != '[') || (c == '}' && top != '{')) {
+					return false;
+				}
 			}
 		}
 		return stack.isEmpty();
+	}
+
+	public static void main(String[] args) {
+		ValidParentheses solution = new ValidParentheses();
+
+		String s1 = "()[]{}";
+		System.out.println("Is \"" + s1 + "\" valid? " + solution.isValid(s1));
+
+		String s2 = "([)]";
+		System.out.println("Is \"" + s2 + "\" valid? " + solution.isValid(s2));
 	}
 }
