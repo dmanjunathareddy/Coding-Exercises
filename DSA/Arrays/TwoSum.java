@@ -1,36 +1,26 @@
-package com.softgroup.dsa.leetcode75;
+package com.softgroup.dsa.array;
 
+import java.util.Arrays;
 import java.util.HashMap;
-import java.util.Map;
 
 public class TwoSum {
-	public static void main(String[] args) {
-		int[] nums = { 2, 7, 11, 15 };
-		int target = 9;
+    public int[] twoSum(int[] nums, int target) {
+        HashMap<Integer, Integer> map = new HashMap<>();
+        for (int i = 0; i < nums.length; i++) {
+            int complement = target - nums[i];
+            if (map.containsKey(complement)) {
+                return new int[]{map.get(complement), i};
+            }
+            map.put(nums[i], i);
+        }
+        throw new IllegalArgumentException("No two sum solution");
+    }
 
-		try {
-			int[] result = twoSum(nums, target);
-			System.out.println(
-					"Indices of the two numbers that add up to the target: [" + result[0] + ", " + result[1] + "]");
-		} catch (IllegalArgumentException e) {
-			System.out.println(e.getMessage());
-		}
-	}
-
-	public static int[] twoSum(int[] nums, int target) {
-		Map<Integer, Integer> map = new HashMap<Integer, Integer>();
-		int n = nums.length;
-		for (int i = 0; i < n; i++) {
-			int cur = nums[i];
-			int x = target - cur;
-			if (map.containsKey(x)) {
-				return new int[] { map.get(x), i };
-			}
-			map.put(cur, i);
-		}
-
-		return null;
-
-	}
-
+    public static void main(String[] args) {
+        TwoSum solution = new TwoSum();
+        int[] nums = {2, 7, 11, 15};
+        int target = 9;
+        int[] result = solution.twoSum(nums, target);
+        System.out.println("Indices of the two numbers that add up to target: " + Arrays.toString(result));
+    }
 }
