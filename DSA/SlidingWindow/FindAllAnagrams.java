@@ -1,4 +1,5 @@
 package com.softgroup.dsa.slidingwindowtechnique;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -9,13 +10,12 @@ public class FindAllAnagrams {
     public static List<Integer> findAnagrams(String s, String p) {
         List<Integer> result = new ArrayList<>();
         
-        if (s == null || s.length() == 0 || p == null || p.length() == 0 || p.length() > s.length())
+        if (s == null || p == null || p.length() > s.length()) {
             return result;
-        
-        Map<Character, Integer> charCountMap = new HashMap<>();
-        for (char c : p.toCharArray()) {
-            charCountMap.put(c, charCountMap.getOrDefault(c, 0) + 1);
         }
+
+        Map<Character, Integer> charCountMap = new HashMap<>();
+        p.chars().forEach(c -> charCountMap.put((char) c, charCountMap.getOrDefault((char) c, 0) + 1));
         
         int left = 0, right = 0, count = p.length();
         
@@ -26,24 +26,22 @@ public class FindAllAnagrams {
                     count--;
                 }
                 charCountMap.put(rightChar, charCountMap.get(rightChar) - 1);
-                right++;
-            } else {
-                while (left < right) {
-                    char leftChar = s.charAt(left);
-                    if (charCountMap.containsKey(leftChar)) {
-                        if (charCountMap.get(leftChar) >= 0) {
-                            count++;
-                        }
-                        charCountMap.put(leftChar, charCountMap.get(leftChar) + 1);
-                    }
-                    left++;
-                }
-                right++;
-                left = right;
             }
+            right++;
             
             if (count == 0) {
                 result.add(left);
+            }
+
+            if (right - left == p.length()) {
+                char leftChar = s.charAt(left);
+                if (charCountMap.containsKey(leftChar)) {
+                    if (charCountMap.get(leftChar) >= 0) {
+                        count++;
+                    }
+                    charCountMap.put(leftChar, charCountMap.get(leftChar) + 1);
+                }
+                left++;
             }
         }
         
@@ -57,4 +55,3 @@ public class FindAllAnagrams {
         System.out.println("Indices of anagrams of \"" + p + "\" in \"" + s + "\": " + anagramIndices);
     }
 }
-
