@@ -1,6 +1,7 @@
 package com.softgroup.dsa.stack;
 
-import java.util.Stack;
+import java.util.ArrayDeque;
+import java.util.Deque;
 
 public class ValidParenthesesII {
     public static void main(String[] args) {
@@ -10,8 +11,8 @@ public class ValidParenthesesII {
     }
 
     public boolean checkValidString(String s) {
-        Stack<Integer> leftStack = new Stack<>();
-        Stack<Integer> starStack = new Stack<>();
+        Deque<Integer> leftStack = new ArrayDeque<>();
+        Deque<Integer> starStack = new ArrayDeque<>();
 
         for (int i = 0; i < s.length(); i++) {
             char c = s.charAt(i);
