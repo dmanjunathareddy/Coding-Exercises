@@ -7,7 +7,7 @@ public class NextGreaterElement {
     public static int[] nextGreaterElement(int[] nums) {
         int n = nums.length;
         int[] result = new int[n];
-        Stack<Integer> stack = new Stack<>();
+        Deque<Integer> stack = new ArrayDeque<>();
 
         for (int i = n - 1; i >= 0; i--) {
             // Pop elements from the stack that are less than or equal to the current element
