@@ -1,4 +1,20 @@
 Given a large dataset, how would you design an efficient query to aggregate data?
+SELECT 
+    product_id, 
+    region, 
+    SUM(amount) AS total_sales, 
+    AVG(amount) AS average_sales, 
+    COUNT(*) AS number_of_sales
+FROM 
+    sales
+WHERE 
+    date BETWEEN '2023-01-01' AND '2023-12-31'
+GROUP BY 
+    product_id, region
+ORDER BY 
+    total_sales DESC;
+
+
 
 Describe a time when you had to refactor a database schema for better performance. What steps did you take?
 
