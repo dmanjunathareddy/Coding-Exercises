@@ -1,0 +1,9 @@
+Given a large dataset, how would you design an efficient query to aggregate data?
+
+Describe a time when you had to refactor a database schema for better performance. What steps did you take?
+
+Explain how you would migrate a database from on-premises to a cloud-based solution like AWS RDS or Google Cloud SQL.
+
+How do you handle schema evolution in a production database?
+
+Discuss a challenging bug you encountered related to database interaction in a Java application. How did you resolve it?
