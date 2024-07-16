@@ -137,3 +137,25 @@ name    department_name
 Alice   HR
 Bob Engineering
 Charlie NULL
+
+
+
+
+
+3. Right (Outer) Join
+A right join returns all rows from the right table and the matched rows from the left table. If no match is found, NULL values are returned for columns from the left table.
+
+Example
+Query:
+
+sql
+Copy code
+SELECT e.name, d.department_name
+FROM employees e
+RIGHT JOIN departments d ON e.department_id = d.department_id;
+Result:
+
+name    department_name
+Alice   HR
+Bob Engineering
+NULL    Marketing
