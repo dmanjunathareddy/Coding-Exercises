@@ -77,3 +77,10 @@ Explain how you would migrate a database from on-premises to a cloud-based solut
 How do you handle schema evolution in a production database?
 
 Discuss a challenging bug you encountered related to database interaction in a Java application. How did you resolve it?
+
+Types of Joins
+Inner Join
+Left (Outer) Join
+Right (Outer) Join
+Full (Outer) Join
+Cross Join
