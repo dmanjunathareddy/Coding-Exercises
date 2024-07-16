@@ -84,3 +84,35 @@ Left (Outer) Join
 Right (Outer) Join
 Full (Outer) Join
 Cross Join
+
+
+1. Inner Join
+An inner join returns only the rows where there is a match in both tables.
+
+Example
+Suppose we have two tables, employees and departments.
+
+employees
+
+employee_id name    department_id
+1   Alice   10
+2   Bob 20
+3   Charlie 30
+departments
+
+department_id   department_name
+10  HR
+20  Engineering
+40  Marketing
+Query:
+
+sql
+Copy code
+SELECT e.name, d.department_name
+FROM employees e
+JOIN departments d ON e.department_id = d.department_id;
+Result:
+
+name    department_name
+Alice   HR
+Bob Engineering
