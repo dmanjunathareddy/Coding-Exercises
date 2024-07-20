@@ -1,13 +1,12 @@
 1. git rebase
-
 Rebase is used to move or combine a sequence of commits to a new base commit.
+
 # First, checkout to the branch you want to rebase
 git checkout feature-branch
 
 # Rebase your feature branch onto the main branch
 git rebase main
-
-
+This will take all the commits from feature-branch and place them on top of the latest commit from main.
 
 2. git cherry-pick
 Cherry-pick is used to apply the changes introduced by some existing commits.
@@ -16,27 +15,24 @@ Cherry-pick is used to apply the changes introduced by some existing commits.
 git checkout main
 
 # Cherry-pick the commit from another branch
-git cherry-pick <commit-ha>
+git cherry-pick <commit-hash>
+This command takes the changes from the specified commit and applies them to the current branch.
 
+3. git stash
+Stash is used to save changes temporarily and clean the working directory.
 
-3. git sta
-Sta is used to save changes temporarily and clean the working directory.
+# Stash the current changes
+git stash
 
-# Sta the current changes
-git sta
+# Apply the stashed changes later
+git stash apply
 
-# Apply the staed changes later
-git sta apply
-
-# Or you can use sta pop to apply and remove the sta
-git sta pop
-
-
+# Or you can use stash pop to apply and remove the stash
+git stash pop
+This will save the current working directory state and allow you to switch branches or perform other operations.
 
 4. git reflog
 Reflog is used to record when the tips of branches and other references were updated in the local repository.
-
-
 
 # View the reflog
 git reflog
@@ -48,8 +44,6 @@ This command helps to find the previous state of your repository if you have los
 5. git bisect
 Bisect helps to find the commit that introduced a bug by binary search.
 
-
-
 # Start the bisect process
 git bisect start
 
@@ -57,7 +51,7 @@ git bisect start
 git bisect bad
 
 # Mark a known good commit
-git bisect good <good-commit-ha>
+git bisect good <good-commit-hash>
 
 # Continue marking commits as good or bad until the problematic commit is found
 # When done, reset to the original branch
@@ -66,8 +60,6 @@ This will help in pinpointing the commit that introduced a bug by checking out d
 
 6. git submodule
 Submodule is used to manage repositories inside another repository.
-
-
 
 # Add a submodule to your repository
 git submodule add <repository-url> <path>
@@ -82,8 +74,6 @@ This command is useful for including external repositories in your project.
 7. git clean
 Clean is used to remove untracked files from the working directory.
 
-
-
 # Dry run to see what would be deleted
 git clean -n
 
@@ -97,12 +87,10 @@ This helps to clean up your working directory by removing files that are not tra
 8. git remote
 Remote is used to manage set of tracked repositories.
 
-
-
 # Add a new remote
 git remote add origin <url>
 
-# ow all remotes
+# Show all remotes
 git remote -v
 
 # Remove a remote
@@ -115,22 +103,18 @@ These commands are useful for managing connections to other repositories.
 9. git tag
 Tag is used to mark specific points in the repository’s history.
 
-
-
 # Create a new tag
 git tag v1.0.0
 
 # Annotated tag
 git tag -a v1.0.0 -m "Release version 1.0.0"
 
-# Pu tags to the remote repository
-git pu origin --tags
+# Push tags to the remote repository
+git push origin --tags
 Tags are often used to mark release points (e.g., v1.0.0, v2.0.0).
 
 10. git worktree
 Worktree allows you to have multiple working directories associated with a single repository.
-
-
 
 # Create a new worktree
 git worktree add -b feature-branch ../path/to/new-worktree main
@@ -141,13 +125,4 @@ git worktree list
 # Remove a worktree
 git worktree remove ../path/to/new-worktree
 This is useful for working on multiple branches simultaneously without having to clone the repository multiple times.
-
-These advanced Git commands can help you manage your code more effectively and streamline your development workflow.
-
-
-
-
-
-
-
 
