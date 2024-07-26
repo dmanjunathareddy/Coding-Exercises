@@ -23,3 +23,5 @@ public class ValidSubarrays {
         System.out.println(solution.validSubarrays(nums)); // Output: 11
     }
 }
+
+
