@@ -60,8 +60,7 @@ class StreamChecker {
         System.out.println(streamChecker.query('d')); // true, because 'cd' is in the words list
         System.out.println(streamChecker.query('e')); // false
         System.out.println(streamChecker.query('f')); // true, because 'f' is in the words list
-        System.out.println(streamChecker.query('g')); // false
-        System.out.println(streamChecker.query('h')); // false
+
         System.out.println(streamChecker.query('i')); // false
         System.out.println(streamChecker.query('j')); // false
         System.out.println(streamChecker.query('k')); // false
