@@ -159,3 +159,4 @@ name    department_name
 Alice   HR
 Bob Engineering
 NULL    Marketing
+
