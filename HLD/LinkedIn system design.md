@@ -87,6 +87,8 @@ User provides necessary information for registration (name, email, password).
 User is prompted to create a profile by adding details such as education, work experience, skills, etc.
 Authentication and Authorization:
 
+
+
 User logs in with their registered credentials.
 The system verifies the user's identity through authentication.
 After successful authentication, the system checks the user's authorization level to determine access permissions.
