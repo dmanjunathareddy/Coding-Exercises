@@ -3,6 +3,7 @@
 
 Designing a car rental system like Zoomcar involves various components and considerations.
 
+
  **high-level design**
 
 System Components:
