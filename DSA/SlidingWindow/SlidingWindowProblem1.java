@@ -1,4 +1,4 @@
-package com.softgroup.dsa.slidingwindowtechnique;
+package com.softgroup.dsa.slidingwindow;
 
 public class SlidingWindowProblem1 {
     public static int maxSumSubarray(int[] arr, int k) {

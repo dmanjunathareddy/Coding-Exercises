@@ -1,4 +1,4 @@
-package com.softgroup.dsa.slidingwindowtechnique;
+package com.softgroup.dsa.slidingwindow;
 
 public class SlidingWindowProblem3 {
     public static int smallestSubarrayLength(int[] arr, int target) {

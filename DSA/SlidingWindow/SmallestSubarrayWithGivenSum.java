@@ -1,4 +1,4 @@
-package com.softgroup.dsa.slidingwindowtechnique;
+package com.softgroup.dsa.slidingwindow;
 
 public class SmallestSubarrayWithGivenSum {
 
