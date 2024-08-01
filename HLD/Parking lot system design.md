@@ -213,9 +213,6 @@ public class GateController {
     // Other methods for gate control
 }
 
-
-
-
 Payment System:
 
 public class PaymentSystem {
