@@ -25,3 +25,5 @@ public class Knapsack {
         System.out.println("Maximum value in knapsack: " + knapSack(W, wt, val, n)); // Output: 220
     }
 }
+
+
