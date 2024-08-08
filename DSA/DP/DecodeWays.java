@@ -25,3 +25,4 @@ public class DecodeWays {
         System.out.println("Number of ways to decode: " + numDecodings(s));
     }
 }
+
