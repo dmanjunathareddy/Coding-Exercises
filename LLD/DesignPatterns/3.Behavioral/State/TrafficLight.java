@@ -16,3 +16,4 @@ public class TrafficLight {
         state.displayState();
     }
 }
+
