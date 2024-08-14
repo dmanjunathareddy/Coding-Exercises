@@ -22,3 +22,5 @@ public class ClimbingStairs {
 		System.out.println("Number of distinct ways to climb " + n + " stairs: " + climbStairs(n));
 	}
 }
+
+

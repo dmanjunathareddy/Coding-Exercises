@@ -24,3 +24,4 @@ public class WordBreak {
         System.out.println("Can break: " + wordBreak(s, wordDict));
     }
 }
+

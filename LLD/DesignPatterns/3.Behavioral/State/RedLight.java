@@ -6,3 +6,4 @@ public class RedLight implements TrafficLightState {
 		System.out.println("Red Light");
 	}
 }
+

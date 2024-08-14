@@ -40,3 +40,4 @@ public class PrimeFactorsWithBitManipulation {
 		return factors;
 	}
 }
+

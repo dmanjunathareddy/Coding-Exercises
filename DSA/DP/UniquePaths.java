@@ -24,3 +24,5 @@ public class UniquePaths {
         System.out.println("Total unique paths: " + uniquePaths(m, n)); // Output: 28
     }
 }
+
+

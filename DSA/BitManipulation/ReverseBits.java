@@ -18,3 +18,4 @@ public class ReverseBits {
 		System.out.println("Reversed number: " + Integer.toBinaryString(reversed));
 	}
 }
+
