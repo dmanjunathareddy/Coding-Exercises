@@ -43,3 +43,4 @@ public class MatrixSearch {
 		System.out.println("Search for " + target2 + ": " + searchMatrix(matrix, target2));
 	}
 }
+
