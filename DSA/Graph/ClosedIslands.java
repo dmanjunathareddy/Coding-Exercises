@@ -65,3 +65,4 @@ public class ClosedIslands {
 		System.out.println("Number of closed islands: " + closedIslandCount);
 	}
 }
+
