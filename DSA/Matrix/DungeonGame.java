@@ -33,3 +33,4 @@ public class DungeonGame {
         System.out.println("Minimum initial health needed: " + calculateMinimumHP(dungeon)); // Output: 7
     }
 }
+

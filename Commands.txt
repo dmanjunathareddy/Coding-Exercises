@@ -125,4 +125,3 @@ git worktree list
 # Remove a worktree
 git worktree remove ../path/to/new-worktree
 This is useful for working on multiple branches simultaneously without having to clone the repository multiple times.
-

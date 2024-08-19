@@ -20,3 +20,4 @@ public class DecoratorPatternExample {
 		System.out.println("Cost: $" + luxuryCar.cost() + ", Description: " + luxuryCar.getDescription());
 	}
 }
+
