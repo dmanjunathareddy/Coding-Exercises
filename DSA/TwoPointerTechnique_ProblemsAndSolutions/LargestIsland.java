@@ -1,4 +1,5 @@
 package com.softgroup.dsa.interview;
+
 import java.util.*;
 
 public class LargestIsland {
@@ -37,8 +38,11 @@ public class LargestIsland {
                     for (int d = 0; d < 4; d++) {
                         int ni = i + DIRS[d];
                         int nj = j + DIRS[d + 1];
-                        if (ni >= 0 && ni < n && nj >= 0 && nj < n && idGrid[ni][nj] > 1 && visitedIslands.add(idGrid[ni][nj])) {
-                            potentialSize += islandSize.get(idGrid[ni][nj]);
+                        if (ni >= 0 && ni < n && nj >= 0 && nj < n) {
+                            int id = idGrid[ni][nj];
+                            if (id > 1 && visitedIslands.add(id)) {
+                                potentialSize += islandSize.get(id);
+                            }
                         }
                     }
                     maxIslandSize = Math.max(maxIslandSize, potentialSize);
