@@ -1,30 +1,23 @@
-package com.softgroup.dsa.greedy.twopointer;
-
-public class ContainerWithMostWater {
-    public static int maxArea(int[] height) {
-        int maxArea = 0;
+public class Solution {
+    public int maxArea(int[] height) {
         int left = 0;
         int right = height.length - 1;
+        int maxArea = 0;
         
         while (left < right) {
-            int minHeight = Math.min(height[left], height[right]);
-            int area = minHeight * (right - left);
-            maxArea = Math.max(maxArea, area);
+            // Calculate the area with the current pair of lines
+            int currentArea = Math.min(height[left], height[right]) * (right - left);
+            // Update the maximum area if the current area is larger
+            maxArea = Math.max(maxArea, currentArea);
             
+            // Move the pointers based on the height comparison
             if (height[left] < height[right]) {
-                left++;
+                left++; // Move left pointer to the right
             } else {
-                right--;
+                right--; // Move right pointer to the left
             }
         }
         
-        return maxArea;
-    }
-    
-    public static void main(String[] args) {
-        int[] height = {1, 8, 6, 2, 5, 4, 8, 3, 7};
-        System.out.println("Max Area: " + maxArea(height)); // Output: 49
+        return maxArea; // Return the maximum area found
     }
 }
-
-
