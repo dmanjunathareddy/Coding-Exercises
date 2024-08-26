@@ -21,6 +21,7 @@ public class CoinChange {
     public static void main(String[] args) {
         int[] coins = {1, 2, 5}; // Example
         int amount = 11; // Example
-        System.out.println("Fewest number of coins needed: " + coinChange(coins, amount));
+    
+    System.out.println("Fewest number of coins needed: " + coinChange(coins, amount));
     }
 }
