@@ -24,3 +24,4 @@ public class HouseRobber {
 		System.out.println("Maximum amount of money that can be robbed: " + robber.rob(nums)); // Output: 12
 	}
 }
+

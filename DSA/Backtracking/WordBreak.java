@@ -33,3 +33,4 @@ public class WordBreak {
 		System.out.println(wordBreak.wordBreak(s, wordDict)); // Output: true
 	}
 }
+
